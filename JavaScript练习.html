@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>javascript</title>
+	<style type="text/css">
+		img{
+			border-style: groove;
+			border-width: 5px;
+			border-color: orange;
+			display: none;
+		}
+		input[class='button']{
+			width: 60px;
+			height: 60px;
+			border-radius: 30px;
+			outline: none;
+		}
+		/*#follow{
+		margin: 15px auto;
+		width: 200px;
+		height: 200px;
+		padding: 15px;
+		background: orange;
+		border-radius: 200px;
+		position: fixed;
+		}*/
+		td{
+			width: 150px;
+			height: 40px;
+			padding: 5px;
+			background: rgba(100,50,30,0.3);
+			text-align: right;
+			
+			line-height: 40px;
+			font: 24px 隶书
+		}
+		td>select{
+			width: 100px;
+		}
+		td[colspan="2"]>input{
+			width: 150px;
+		}
+		#proress{
+			width: 1px;
+			height: 10px;
+			background: red;
+			border-radius: 5px;
+		}
+		/*.bar{
+			border: 1px solid;
+			position: relative;
+			width: 100%;
+			height: 15%;
+			background: #ccc;
+			border-radius: 10px;
+			opacity: 0;
+		}*/
+		.bar:hover{
+			opacity: 1;
+		}
+		.nmtest{
+			width: 150px;
+			height: 150px;
+			font-size: 28px;
+			display: inline-block;
+		}
+		#green{background: green;}
+		#red{background: red;}
+		#blue{background: blue;}
+		#orange{background: orange;}
+	</style>
+</head>
+<body><!-- onkeydown="myfunc10()" -->
+	<input type="button" value="按钮" onclick="alert('单机成功')">
+	<h3>javascript练习</h3>
+	<script type="text/javascript">
+		document.write("<h3>output a title</h3>")
+		document.write("<br>换行<li>列表项</li><li>列表项</li>")
+		var n="helloworld";
+		var str="\"\"\r";
+		//alert("欢迎来到javascript\n"+str+"回车符")
+		// var m;
+		// alert(typeof m)
+	</script>
+	<script type="text/javascript">
+		var head=35;
+		var foot=94;
+		var chicken=(foot-4*head)/-2;
+		document.write("headcounts:"+head+"<br>footcounts:"+foot+'<br>');
+		if(".."){
+			// alert("is real")
+		}
+		var sz=[1,2,3,4];
+		var sz2=new Array(5,6,"%","\n*")
+		var sz3=new Array();
+			sz3[2]="#";
+		// alert(sz2[3])
+		var person={name:"zs",age:18,id:1001};
+		document.write(person.name);
+		var A=20;
+		var B=30;
+		B=A;
+		document.write(B)
+		var t=2016;
+		var s="2016";
+		// alert(t!==s);
+	</script>
+	<input type="button" value="计算鸡和兔的数量" onclick="alert('chickens:'+chicken+'rabbits:'+(35-chicken))">
+<br>
+	<script type="text/javascript">
+		var g=new Array('一','二','三','四','五','六','七','八','九','十')
+		for(var x=1;x<=10;x++){ 
+			for(var j=1;j<=x;j++){
+				if(x*j<=10){
+					document.write(g[j-1]+g[x-1]+'得'+g[x*j-1]+' ')
+				}else{
+					if((x*j)%10!=0){
+						document.write(g[j-1]+g[x-1]+'得'+g[Math.floor(x*j/10)-1]+'十'+g[(x*j)%10-1]+'	')
+					}
+					else{
+						document.write(g[j-1]+g[x-1]+'得'+g[Math.floor(x*j/10)-1]+'十	')
+					}
+					
+				}
+				
+				}
+				document.write('<br>')
+			 }
+		function hs(name ,age){
+			alert("这个人的姓名是："+name+"年龄是："+age)
+		}
+
+
+	</script>
+	<input type="button" name="hs" value="调用" onclick="hs('张三',18);">
+	<script type="text/javascript">
+		function people(){
+			return arguments.length;
+		}
+		// alert(people(12,32,45))
+		function sum(){
+			sumg=0;
+			for(var i=0;i<arguments.length;i++){
+				sumg+=arguments[i];
+			}
+			return sumg;
+		}
+		// alert(sum(1,6,2,5,8))
+	</script>
+	<canvas id="mycavas" width="600" height="300" style="border:1px solid #c3c3c3;"></canvas>
+	<script type="text/javascript">
+		function draw(x,y){
+		var canvas=document.getElementById('mycavas');
+		var ctx=canvas.getContext("2d");
+			ctx.fillStyle="#FF0000";
+			ctx.beginPath();
+			ctx.arc(x,y,10,0,Math.PI*2,true);
+			ctx.closePath();
+			ctx.fill();
+		}
+		for(var i=0;i<12;i++){
+			for(var j=0;j<24;j++){
+				draw(12.5+j*50,12+i*50);
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		// var people={};
+		// 	people.name="松江";
+		// 	people.age=10;
+		// 	alert(people.age)
+		var people ={
+			name:'神农架',
+			age:19
+		}
+		// alert(people.age);
+
+		var furit=new Array("1苹果","3香蕉");
+		furit.push("2梨子","4橘子");
+		document.write("<br>"+furit+"<br>");
+		furit.shift();//删除顶端元素
+		furit.unshift("1猕猴桃");//添加顶端元素
+		document.write(furit);
+		document.write(furit.join("__"))
+		document.write("<br>"+furit.reverse());
+		document.write("<br>"+furit.sort());
+		var sort1=new Array(6,7,9,8,32,10);
+		document.write(sort1.sort(sortFuc));
+		function sortFuc(ar1,ar2){
+			if(ar1>ar2){
+				return 1;
+			}else if(ar1<ar2){
+				return -1;
+			}else{
+				0;
+			}
+		}
+		var hebing=furit.concat(sort1);//合并数组
+		document.write("<br>"+hebing);
+		var hebing=furit.concat("1个石榴");//合并元素
+		
+		document.write("<br>"+hebing);
+		var ar3=hebing.(1,2,"新插入元素")//切取的起始位置，切取个数，替换元素，最后返回被切取的元素
+		document.write("<br>"+ar3);
+		document.write("<br>"+hebing);
+		document.write("<br>"+hebing.slice(1,3));//切取元素的方法，起始位置，结束位置，不改变原有数组，第二个参数省略则切取到结尾
+		document.write("<br>"+hebing);
+	</script>
+	<script type="text/javascript">
+		var yuansu={name:"张三",age:18,ID:1001}
+		for (x in yuansu){
+			document.write("<br>"+x)
+			document.write("<li>"+yuansu[x]);
+
+		}
+		var arr4=["A","B","C","D","E"];
+		for (x in arr4){
+			if(x%2==0){
+				document.write("<br>"+arr4[x])
+			}
+			
+		}
+		function jiecheng(n){
+			if(n==1){
+				return 1
+			}
+			else{
+				return n*jiecheng(n-1)
+			}
+		}
+		document.write("<br>5的阶乘为:"+jiecheng(5)+"<br>")
+		var i=1000;
+		// function huiwen(){
+		// 	while(i<10000){
+		// 		if(Math.floor(i/1000)==(i%10) & (Math.floor(i/100)%10)==(Math.floor(i/10)%10)){
+		// 			document.write("<br>"+i);
+		// 		}
+		// 		i++;
+		// 	}
+		// }
+		// huiwen();
+		var h=6;
+		function shengd(){
+			for(var i=1;i<=h-1;i++){
+				for(var j=h-1;j>=i;j--){
+					document.write("&nbsp;");
+				}
+				for(var n=1;n<=2*i-1;n++){
+				document.write("*")
+				}
+				document.write("<br>")
+			}	
+		}
+		shengd()
+		var 1=new Date(1602245658000);
+		var date2=new Date();
+		// var t1=date2.toString()
+		// var t1=date2.toDateString()//此方法只返回日期部分
+		// var t1=date2.toTimeString()//此方法只返回时间部分
+		// var t1=date2.toLocaleString();//此方法返回本地时间格式
+		// alert(Date.UTC(2016,1))//返回世界时局1970的毫秒数;
+		var t1=date2.valueOf();//返回当前时间距1970的毫秒数;
+		// document.write(t1)
+		//时间对象默认调用toString方法
+		// alert(Date.parse(date2))
+		// alert(Math.ceil(3.1))//ceel向上舍入，round()是四舍五入整数
+		// for(var i=0;i<10;i++){
+		// 	document.write(Math.floor(Math.random()*9+2)+"<br>")
+		// }
+		function selc(low,high){
+			var ch = high - low + 1
+			document.write(Math.floor(Math.random()*ch+low))
+		}
+		// selc(33,86);
+		// Math.max().min()分别是最大最小值abs()返回绝对值
+		var st1="地 点";
+
+		document.write(st1.charAt(0))
+		var st2=st1.concat("dadw"+st1);
+		document.write(st2)//concat连接字符串,slice(n,m)提取字符串
+		//substring:和slice差不多，substr(n,m)，m表示提取的数目而非位置
+		var arrs=st2.split(" ")//切片为数组，根据传入符号进行切片
+		document.write("<br>"+arrs[1])
+		//indexOf检索字符串lastIndexOf:从后向前检索;toLowercase():字符串转换为小写toUpperCase转为大写
+		// match根据正则表达式匹配字符replace替换字符并返回search返回字符文本位置
+		var color=['red','green','orange','yellow']
+		function bcolor(){
+			var c=Math.floor(Math.random()*5);
+			document.bgColor=color[c];
+		}
+		// confirm("大师兄你好")//是提示用户输入的对话框，确定和取消返回值为布尔值
+		function aa(){
+			prompt("第一个参数是提示","第二个参数是默认值")
+		}
+		// open("http://www.baidu.com","_parent","height=300,width=400,top=100")//第一个参数是地址，第二个参数是打开方式或姓名,第三个参数是设置窗口属性
+		function fu1(){
+			document.write('1s后我会执行')
+		}
+		// setTimeout(fu1,1000)//延迟执行方法(可直接写方法体)，返回值为计时器id，后期用clearTimeout清除
+		var setid=setInterval(fu1,1000)//周期执行方法
+		clearInterval(setid)
+		// print()
+		//window.innerwidth和window.innerheight,分别返回显示区域的宽高
+		// history对象：
+		document.write("<br>"+	history.length+"<br>")//length属性查看访问历史列表个数
+		// history.back()方法用于返回历史列表上一个连接的url,forward()是下一个页面的url,go(index)是跳转到具体页面
+		function nextpage(){
+			history.forward()
+		}
+		// location对象：
+		// href("")(返回当前路径) location.assign("")(跳转到路径)，reload重新加载文档 replace替换当前文档区别是不会加入到history列表中
+		// screen对象：
+		//availHeight()availWidth():显示的宽度高度
+		//navigator对象：
+		//appName:返回浏览器代码名appVersion:返回浏览器版本号onLine返回是否在线的布尔值
+		var middlewin;
+		function middlewin(){
+			var w=200,h=300;
+			var x=(screen.width-w)/2;
+			var y=(screen.height-h)/2;
+			var str='top='+y+'left='+x+'width='+w+'height='+h;
+			middlewin=open("","",str);
+		}
+		var guojing=new Object();
+			guojing.name="郭靖";
+			guojing.HP=500;
+			guojing.gj=90;
+			guojing.sd=60;
+			guojing.skill=new Array("亢龙有悔","飞龙在天","见龙在田","鸿渐于陆","潜龙勿用");
+		var ouyang=new Object();
+			ouyang.name="欧阳锋";
+			ouyang.HP=800;
+			ouyang.gj=100;
+			ouyang.sd=40;
+			ouyang.skill=new Array("灵蛇棍法","凤凰神力","颠倒阴阳","逆转静脉","天蝉神功");
+		function whoGJwho(a,b){
+			return a.sd*Math.random()>b.sd*Math.random()?[a,b]:[b,a]
+		}
+		
+		function game1(){
+			var fight=whoGJwho(guojing,ouyang)
+			var skillIndex=Math.floor(Math.random()*5)
+			document.write(fight[0].name+"使出了一招"+fight[0].skill[skillIndex]+"<br>")
+			var damage=fight[0].gj*Math.random()-fight[1].gj*Math.random();
+			if(damage<=0){
+				damage=0
+			}else{
+				damage=Math.ceil(damage);
+			}
+			fight[1].HP-=damage;
+			document.write(fight[1].name+"损失了"+damage+"生命值<br>")
+			document.write("郭靖当前生命值："+guojing.HP+" 欧阳锋当前生命值："+ouyang.HP);
+			if(fight[1].HP<=0){
+				document.write("<br>游戏结束! "+fight[0].name+"取得胜利")
+				clearInterval(zd)
+			}
+		}
+		// var zd=setInterval(game1,100);
+
+
+	</script>
+	<br>
+	<br>
+	<p id="10010" class="tests">测试信息</p>
+	<input type="button" value="居中窗口" onclick="middlewin()">
+	<a href="html测试.html" target="_parent">测试</a>
+<!-- 	<input type="button" name="" value="更换背景色" onclick="aa()"> -->
+	<input type="button" name="" value="下一页" onclick="nextpage()">
+	<input type="button" value="open新窗口" onclick="opennwin()"><br>
+	<input type="button" value="close新窗口" onclick="closewin()"><br>
+	<input type="button" value="moveTo新窗口" onclick="moveTo()"><br>
+	<input type="button" value="resize新窗口" onclick="resizeBy()"><br>
+	<div id="div1">测试</div>
+	<ul id="ul1">
+		<li>信息</li>
+		<li>信息</li>
+		<li>信息</li>
+	</ul>
+	<script type="text/javascript">
+		var newwindow;
+		function opennwin(){
+			newwindow=open("","","top=100,left=200,width=200,height=200");
+		}
+		function closewin(){
+			newwindow.close();
+		}
+		function moveTo(){
+			newwindow.moveTo(300,300);
+			newwindow.focus();
+		}
+		function resizeBy(){
+			newwindow.resizeBy(30,30);
+			newwindow.focus();
+		}
+		function clock(){
+			var today=new Date();
+			var hours=today.getHours();
+			var minutes=today.getMinutes();
+			var seconds=today.getSeconds();
+			var string="现在时间";
+			if(hours>12){
+				string+="下午"
+			}else{
+				string+="上午"
+			}
+			string+=hours+"时"+minutes+"分"+seconds+"秒";
+			var sda=document.getElementById("clock");
+			sda.value=string;
+		}
+		var tess=document.getElementById("10010")//通过id获取元素
+		tess.innerHTML="改变测试信息<em>信息</em>"//改变获取的元素信息
+		document.write(tess.tagName)//获取元素的标签
+		tess.id="10020"//改变属性内容，也可以用此方法给元素添加属性
+		document.write(tess.id)//获取属性
+		document.write(tess.getAttribute("value"))//可获得属性值，setAttribute("属性","属性值")更改属性值
+		//removeAttribute("属性")移除指定属性
+		document.write(tess.className)//class属性只能通过className获取
+		tess.style.background="red";//通过style改变css属性
+		tess.style.textShadow="2px 3px 3px #FF0000"
+		tess.style.className="fun1"
+		function creatyuansu(){
+			var img1=document.creatElement("img")//创建元素节点
+			img1.src="路径地址"//创建元素内容
+			var div1=document.getElementById("div1")
+			div1.appendChild(img1)//向元素中添加子元素节点
+			div1.removeChild(img1)//删除子元素节点
+			div1.nodeName//获取元素名称与tagname用法相同
+			div1.parentNode.nodeName//获取父节点名称
+			div1.childNode.nodeName//获取子节点名称，返回列表
+		}
+		var ul1=document.getElementById("ul1")
+		document.write(ul1.childNodes.length)
+		//childNodes会吧空格文本算成子节点，children只算子元素节点，不包括文本节点
+		//firstChild返回元素的首个子节点,firstElementChild返回首个子元素节点，last和first用法一致
+		//nextElementSibling//返回下一个元素节点nextSibling返回下一个节点
+
+		// var timeId=setInterval(clock,1000)
+		document.write("<br>"+tess.attributes.length)//insertBefore(插入元素，插入位置)在该元素节点前插入新元素，replaceChild方式用法一样
+	</script>
+	<input type="text" id="clock" size="40">
+	<input type="button" value="停止" onclick="clearInterval(timeId)"><br>
+	<input type="text" value="" id="imgurl"><br>
+	<input type="button" value="播放" class="button" onclick="autoPlay()">
+	<input type="button" value="添加图片" class="button" onclick="addimage()"><br>
+	<img src="" height="300" id="img"><br>
+	<script type="text/javascript">
+		var imageArr=new Array("css阶段练习1/sc17.png","css阶段练习1/p1.png","css阶段练习1/bj1.jpg");
+		var index=0;
+		function autoPlay(){
+			var imgObj=document.getElementById('img')
+			imgObj.style.display='inline';
+			if(imageArr.length<=0){
+				imgObj.setAttribute('alt','图片没有了，请添加')
+			}else{
+				index=(index+1)%imageArr.length
+				var imgid=imageArr[index]
+				imgObj.setAttribute('src',imgid)
+			}
+			setInterval(autoPlay,1000)
+		}
+		function addimage(){
+			var imgurl=document.getElementById('imgurl').value
+			imageArr.push(imgurl)
+		}
+
+	</script>
+	<p>会员ID: <input type="text" id="vip-id" value=""></p>
+	<p>姓 名 : <input type="text" id="vip-name" value=""></p>
+	<p>
+		<input type="button" value="添加" onclick="addvip()">
+		<input type="button" value="删除" onclick="delvip()">
+	</p>
+	<ul id="vip-ul">
+		<h3>俱乐部会员名单</h3>
+	</ul>
+	<script type="text/javascript">
+		function addvip(){
+			var vipid=document.getElementById('vip-id').value;
+			var vipname=document.getElementById('vip-name').value;
+			if(vipname!=''&&vipid!=''){
+				var ulobj=document.getElementById('vip-ul');
+				var liobj=document.createElement('li')
+				liobj.className='liarr';
+				liobj.innerHTML='会员ID：'+vipid+'<br>会员姓名：'+vipname;
+				ulobj.appendChild(liobj)
+			}else{
+				alert('id和姓名不能为空')
+			}
+		}
+		function delvip(){
+			var ulobj=document.getElementById('vip-ul');
+			var vipid=document.getElementById('vip-id').value;
+			var liArr=document.getElementsByClassName('liarr');
+			for(var i=0;i<liArr.length;i++){
+				var vipxx=liArr[i].innerHTML;
+				if(vipxx.indexOf(vipid)!=-1){
+					ulobj.removeChild(liArr[i])
+				}
+			}
+		}
+		window.onload=function(){
+			//myfunc11()//也可把此方法写在body元素中
+		}
+		
+	</script>
+	<div id="divc" style="height: 300px;width: 300px;background: green;"></div>
+	<input type="button" id="btn3" value="myfunc3">
+	<input type="button" value="双击" id="dbl" ondblclick="myfunc4()">
+	<input type="text" id="anjian">
+	<div id="divd" style="height: 300px;width: 300px;background: green;"></div>
+	<div id="divs1" style="background: orange;padding: 15px;float: left;">
+		<div id="divs2" style="background: green;padding: 15px;float: left;">
+			<div id="divs3" style="background: red;padding: 15px;float: left;width: 200px;height: 100px"></div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var anjian=document.getElementById('anjian')
+		var btn3=document.getElementById("btn3");
+		var divc=document.getElementById("divc");
+		function myfunc1(){
+			divc.style.background='red'
+		}
+		function myfunc2(){
+			divc.innerHTML='单击事件'
+		}
+		function myfunc4(){
+			divc.innerHTML='双击事件'
+			divc.style.borderRadius='5px'
+		}
+		function myfunc5(){
+			divc.innerHTML='鼠标被按下'
+		}
+		function myfunc6(){
+			divc.innerHTML=''
+		}
+		function myfunc7(){
+			divc.innerHTML='鼠标移入'
+		}
+		function myfunc8(){
+			divc.innerHTML='鼠标已经移除'
+		}
+		function myfunc9(){
+			divc.innerHTML='你单机了鼠标右键，将弹出'
+		}
+		function myfunc10(){
+			divc.innerHTML='你按下了键盘'
+		}
+		function myfunc11(){
+			alert('页面加载完毕')
+		}
+		btn3.addEventListener('click',myfunc1)
+		btn3.addEventListener('click',myfunc2)
+		btn3.removeEventListener('click',myfunc2)
+		divc.addEventListener('mousedown',myfunc5)
+		divc.addEventListener('mouseup',myfunc6)
+		divc.addEventListener('mouseover',myfunc7)
+		divc.addEventListener('mouseout',myfunc8)
+		divc.addEventListener('contextmenu',myfunc9)
+		function func(event){
+			alert(func.arguments[0]+'\n'+event.target+'\n'+event.type)
+		}
+		//divc.onclick=func//有事件发生则有一个event参数
+		function func2(event){
+			// var e=e||event
+			// alert(e)
+			alert(event.clientX+'\n'+event.screenY)//pageY相对文档
+		}
+		//document.onclick=func2
+		function func3(event){
+			var e=e||event
+			divc.innerHTML="字符解码为："+e.key//获得按键字符解码，和which相同
+		}
+		//anjian.addEventListener('keydown',func3)
+		anjian.onkeydown=func3//返回按键代码值
+		//anjian.onkeypress=func3//返回ASCII字符
+		var divd=document.getElementById('divd')
+		function func4(event){
+			if(event.button==2){//或者altKey
+				divd.style.background='orange'
+				divd.innerHTML='您按下了alt键'
+			}else{
+				divd.style.background='blue'
+				divd.innerHTML='您按下的不是alt键'
+			}
+		}
+		var divs1=document.getElementById('divs1')
+		var divs2=document.getElementById('divs2')
+		var divs3=document.getElementById('divs3')
+		function funcs1(){
+			alert('orange')
+		}
+		function funcs2(){
+			alert('green')
+		}
+		function funcs3(){
+			alert('red')
+			event.stopPropagation()//阻止事件冒泡
+		}
+		function funcs4(){
+			alert('green')
+			event.preventDefault()//阻止事件默认行为
+			
+		}
+		//document.onkeydown=func4
+		document.onmousedown=func4
+		divs1.addEventListener('click',funcs1,false)
+		divs2.addEventListener('click',funcs2,false)
+		divs3.addEventListener('click',funcs3,false)
+		//document.oncontextmenu=funcs4
+
+
+
+	</script>
+	<div id="follow"></div>
+	<script type="text/javascript">
+		var follow=document.getElementById('follow')
+		function moveball(event){
+			var sx=document.documentElement.scrollTop||document.body.scrollTop
+			follow.style.left=event.clientX+'px';
+			follow.style.top=event.clientY+'px';
+
+		}
+		//document.onmousemove=moveball
+		var divf=new Array()
+		for(var i=0;i<30;i++){
+			var divfs=document.createElement('div')
+			
+			divfs.style.background='red';
+			divf[i]=divfs
+		}
+
+
+		function myfollow(e){
+			
+			var body=document.getElementsByTagName('body')[0];
+			for(var i=0;i<30;i++){
+				var rad=Math.floor(Math.random()*10)+'px';
+				// divf[i]=document.createElement('div')
+				// divf[i].className='divf';
+				// divf[i].style.background='red';
+				divf[i].style.width=divf[i].style.height=rad;
+				divf[i].style.position='fixed';
+				divf[0].style.left=e.clientX+'px';
+				divf[0].style.top=e.clientY+'px';
+				divf[i].style.left=e.clientX+Math.floor(Math.random()*10*i)+'px';
+				divf[i].style.top=e.clientY+Math.floor(Math.random()*10*i)+'px';
+				body.appendChild(divf[i])
+			}
+		}
+		//document.onmousemove=myfollow
+	</script>
+	<br><br><br><br><br><br><br><br><br><br><br><br>
+	<input type="text" class="inp" id="txt"><br>
+	<input type="button" class="clearjp" value="清除" onclick="clearnum()">
+	<input type="button" class="new" value="重置" onclick="cz()">
+	<div id="divjp" class="divj" style="width: 80px;height: 120px;padding: 10px;text-align: center;background: orange;border: 2px solid orange;"></div>
+	<script type="text/javascript">
+		var txt=document.getElementById('txt');
+		var divjp=document.getElementById('divjp')
+		function getrandom(){
+			var nums=[0,1,2,3,4,5,6,7,8,9]
+			var radn=[]
+			for(var i=0;i<10;i++){
+				var n=Math.floor(Math.random()*(10-i))
+				radn.push(nums[n]);
+				nums.splice(n,1)
+			}
+			return radn
+		}
+		function createkey(){
+			var radArr=getrandom();
+			var btnArr=[];
+			for(var i=0;i<radArr.length;i++){
+				var btn=document.createElement('input');
+				btn.setAttribute('type','button');
+				btn.value=radArr[i];
+				btn.onclick=btnClick;
+				btnArr.push(btn);
+				divjp.appendChild(btn)
+			}
+		}
+		createkey()
+		function btnClick(){
+			txt.value+=this.value
+		}
+		function cz(){
+			window.location.reload()
+		}
+		// document.onmousedown=getrandom
+
+	</script>
+	<script type="text/javascript">
+		var x=1
+		function testthis(){
+			alert(x)
+			alert(this.x)
+			alert(this)
+			this.x=100
+			
+		}
+		// testthis()
+		// var objt=new testthis()
+		// alert(objt.x)
+	</script>
+	<canvas id="canvas1" width="800" height="400" style="background: #A9A9A9"></canvas>
+	<canvas id="canvas2" width="800" height="400" style="background: #A9A9A9"></canvas>
+	<script type="text/javascript">
+		var cc=document.getElementById("canvas1")
+		var ctx=cc.getContext("2d");
+		ctx.lineWidth=3;
+		ctx.fillStyle="orange";
+		ctx.strokeStyle="green";
+		ctx.beginPath();
+		ctx.moveTo(50,50);//起始点
+		ctx.quadraticCurveTo(450,200,300,50)//控制点，结束点
+		ctx.stroke()
+		//三次方贝塞尔曲线
+		ctx.beginPath();
+		ctx.lineWidth=3;
+		ctx.fillStyle="orange";
+		ctx.strokeStyle="green";
+		ctx.moveTo(350,50);
+		ctx.bezierCurveTo(400,-100,600,200,700,50)
+		ctx.stroke()
+
+		ctx.beginPath()
+		ctx.rect(300,50,200,200)
+		ctx.stroke()
+		ctx.clip()
+		// if(ctx.isPointInPath(350,60)){
+		// 	alert("该点在当前路径中")
+		// }else{
+		// 	alert("该点不在当前路径中")
+		// }
+		// ctx.clip()
+		ctx.save()//保存绘图环境
+		ctx.restore()//恢复之前的绘图环境，后保存的先恢复（栈结构）
+		ctx.beginPath();
+		ctx.fillRect(0,0,150,100)
+		
+
+		// apply方法：如sum.apply(obj,[num1,num2]),将sum的当前this换为obj，并且传入参数并执行
+	</script>
+	<script type="text/javascript">
+		var cc=document.getElementById("canvas2")
+		var ctx=cc.getContext("2d");
+			ctx.lineWidth=3;
+			ctx.fillStyle="orange";
+		var img=new Image();
+		img.src="css阶段练习1/sc16.png";
+		img.onload=function(){
+			var pattern=ctx.createPattern(img,"repeat-x");
+			ctx.fillStyle=pattern;
+			ctx.fillRect(0,0,800,400)
+
+			
+		}
+			ctx.beginPath();
+			ctx.moveTo(10,200);
+			ctx.lineTo(790,200);
+			ctx.stroke();
+			ctx.beginPath();
+			ctx.font="20px 宋体";
+			// ctx.textBaseline='alphabetic'alphabetic是默认，ideographic是表意基线(紧贴)handing悬挂基线
+			ctx.fillText("默认值abcf",100,200);
+			ctx.textBaseline="top";
+			ctx.fillText("top",300,200);
+		// eval()函数将字符串转换为代码并运行
+		//escape()函数对函数进行编码（不会对字母和数字以及一些符号进行编码）unescape()函数进行解码
+		// enURL()encodeURLComponent()分别是解码编码的url和解码编码的url组件
+		// isFinite()检查某个数是否为无穷大的值Infinity表示无穷大
+		//缩放平移旋转：
+			//ctx.translate(100,100)//把画布的坐标原点平移到参数位置
+			//ctx.scale(2,2)//缩放坐标系的xy轴
+			//ctx.rotate()//旋转画布坐标系，参数为弧度
+
+	</script>
+	<br><br>
+	<input type="button" value="按钮" onclick="addInput()"><br>
+
+	<script type="text/javascript">
+		var i=0;
+		function addInput(){
+			var o=document.createElement('input');
+			o.type='button';
+			o.value='按钮'+ i++;
+			o.addEventListener('click',addInput);
+			document.body.appendChild(o);
+			o=null//即时解除不使用的变量
+		}
+	</script>
+	<canvas id="canvas3" width="800" height="400" style="background: #A9A9A9"></canvas>
+	<script type="text/javascript">
+		var cc=document.getElementById("canvas3")
+		var atx=cc.getContext("2d");
+			atx.lineWidth=3;
+			atx.fillStyle="orange";
+			atx.strokeStyle='red';
+		
+			var i=0;
+			var j=100;
+			var step=10
+			function rotRect(){
+				i++;
+				if(j==200){
+					step=-10
+				}else if(j==0){
+					step=10
+				}
+				j=j+step
+				
+				atx.save()
+				atx.scale(j/100,j/100)
+				atx.clearRect(0,0,cc.width,cc.height)
+				atx.translate(cc.width/2,cc.height/2);
+
+				atx.rotate(i*Math.PI/18);
+				atx.translate(-50,-50)
+				atx.strokeRect(0,0,100,100);
+				atx.fillRect(0,0,100,100);
+				atx.restore()
+			}
+			setInterval(rotRect,100)
+	</script>
+	<input type="button" id="buttonc1" value="button1">
+	<input type="button" value="动态添加事件" onclick="addClick(buttonc1)">
+	<input type="button" value="防止重复提交" onclick="submit()">
+	<script type="text/javascript">
+		function addClick(obj){
+			obj.onclick=function(){
+				alert('添加成功')
+			}
+		}
+		//检查当钱页面是否加载完成
+		function check(){
+			if(window.document.readyState=='complete'){
+				return true
+			}else{
+				return false;
+				alert('加载未完成，请等待')
+			}
+		}
+		function submit(){
+			if(check()){
+				alert('提交成功')
+			}else{
+				alert('请稍等')
+			}
+		}
+	</script>
+	<table>
+		<tr>
+			<td>用户名：</td>
+			<td><input type="text" name=""></td>
+		</tr>
+		<tr>
+			<td>密码：</td>
+			<td><input type="text" name=""></td>
+		</tr>
+		<tr>
+			<td>确认密码：</td>
+			<td><input type="text" name=""></td>
+		</tr>
+		<tr>
+			<td>性别：</td>
+			<td>男<input type="radio" name="sex" id="sex1">
+				女<input type="radio" name="sex" id="sex2"></td>
+		</tr>
+		<tr>
+			<td>学历：</td>
+			<td>
+				<select id="select">
+					<option value="高中">高中</option>
+					<option value="大学">大学</option>
+					<option value="初中">初中</option>
+					<option value="小学">小学</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="submit" value="提交" onclick="cs()">
+				<input type="reset" name="">
+			</td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		function $(id){
+			var boo=document.getElementById(id)
+			return boo
+		}
+		function cs(){
+			str=''
+			str+='\n性别';
+			str+=$('sex1').checked?'男':'女';
+			alert(str)
+		}
+		//select的value值为所选中的标签的value值
+		
+	</script>
+	<br>
+	<img id="tp" src="css阶段练习1/p3.jpg" alt="错误">
+	<canvas id="canvas4" width="800" height="400" style="background: #A9A9A9"></canvas>
+	<input type="range" id="inps" value="1" min="1" max="30">
+	<script type="text/javascript">
+		var bb=document.getElementById("canvas4")
+		var btx=bb.getContext("2d");
+		var scaler=document.getElementById('inps');
+		var imgh=document.getElementById('tp');
+		// onchange为元素内容改变时发生
+		var scale1=0.5;
+		scaler.onchange=function(e){
+			scale1=e.target.value/20
+			draw()
+		}
+		function draw(){
+			
+			var w=bb.width;
+			var h=bb.height;
+				sw=w*scale1;
+				sh=h*scale1;
+			btx.clearRect(0,0,bb.width,bb.height);
+			btx.drawImage(imgh,w/2-sw/2,h/2-sh/2,sw,sh)
+		}
+		imgh.onload=function(){
+			draw()
+		}
+		//var obj1=btx.getImageData(0,0,100,100);//参数是获取区域的坐标
+		// document.write(obj1.data.length)//宽高、长度，分别是0-255的rgba
+		//putImageData将获取的像素区域放回画部
+		// for(var i=0;i<obj1.data.length;i++){
+		// 	obj1.data[0+4*i]=100;
+		// 	obj1.data[1+4*i]=100;
+		// 	obj1.data[2+4*i]=50;
+		// 	obj1.data[3+4*i]=255;
+		// }
+		// btx.putImageData(obj1,100,10)
+
+		// var imgh=document.getElementById('tp');
+		// imgh.onload=function(){
+		// 	btx.drawImage(imgh,0,0,150,150,100,100,200,200)
+		// }
+		
+	</script>
+	<script type="text/javascript">
+		//原型模式
+		function Peopelobj(){}
+		Peopelobj.prototype.name='喽啰';
+		Peopelobj.prototype.weapon='大刀';
+		// Peopelobj.prototype={
+			//constructor:Peopelobj
+		// 	name:'喽啰',
+		// 	weapon:'大刀',
+		// 	job:['巡山','打更']
+		// }这样（原型字面量方式）创建会将对象的constructor变为Object,通过constructor:Peopelobj强制指向构造函数
+
+		var monser_1=new Peopelobj()
+		var monser_2=new Peopelobj()
+		//alert(monser_1.name==monser_2.name)//说明引用的是同一个地址
+		//alert(Peopelobj.prototype.isPrototypeOf(monser_1))
+		//alert(monser_1.hasOwnProperty('name'))//判断是否是本地属性还是prototype
+		//alert('name' in monser_1)
+		//原型组合模式
+		function Moster(name,arr){
+			constructor:Moster,
+			this.name=name
+			this.job=arr
+		}
+		Moster.prototype={
+			run:function(){
+				return this.name+'这个工作'
+			}
+		}
+		var Moster_1=new Moster('小旋风',["砍柴","跳水"])
+		//alert(Moster_1.run())
+	</script>
+	<br>
+	<br><br>
+	<canvas id="canvas5" width="800" height="400" style="background: #A9A9A9"></canvas>
+	
+	<input type="button" value="反色绘制" onclick="fs()">
+	<input type="button" value="滤镜效果" id="ljxg" onclick="">
+	<script type="text/javascript">
+		var d=document.getElementById('canvas5');
+		var dtx=d.getContext('2d');
+		var imgd=new Image();
+		imgd.src="css阶段练习1/p3.jpg"
+		imgd.onload=function(){
+			dtx.drawImage(imgd,0,0,400,300)
+		}
+		
+			function fs(){
+			var imgData=dtx.getImageData(0,0,400,300)
+				dtx.clearRect(0,0,400,300)
+				for(var i=0;i<imgData.length;i+=4){
+					imgData.data[i+0]=255-imgData[i+0]
+					imgData.data[i+1]=255-imgData[i+1]
+					imgData.data[i+2]=255-imgData[i+2]
+				}
+			//alert(imgData[0])
+			// dtx.drawImage(imgData,500,0,400,300)
+			// toDataURL()这个方法可以获取画布图像并返回Dataurl数据
+		}
+	</script>
+	<!-- <video src="lyl2.mp4" id="video1" controls="" width="600"></video> -->
+	<!-- <input type="button" value="前进" onclick="qianjin()"> -->
+	<div id="proress"></div>
+	<!-- <progress value="0" id="proressv"> -->
+<!-- 	<script type="text/javascript">
+		var v=document.getElementById('video1')
+		
+		function propss(){
+			var po=document.getElementById('proress')
+			var pov=document.getElementById('proressv')
+			pov.max=v.duration
+			pov.value=v.currentTime
+			po.style.width=Math.floor((v.currentTime/v.duration)*v.width)+'px'
+			
+		}
+		window.addEventListener('load',function(){v.addEventListener('timeupdate',propss)})
+		
+		function qianjin(){
+			v.currentTime+=10;
+		}
+		function Muted(){
+			if(v.muted){
+				v.muted=false
+			}
+		}
+		function Hero(name,type,home,weapon){
+			this.name=name
+			this.type=type
+			this.home=home
+			this.weapon=weapon
+			Hero.prototype.skill=function(){
+				alert('测试用户')
+			}
+		}
+		function Sword(lev){
+			this.lev=lev
+		}
+		var xjs=new Sword(1)
+		var user=new Hero('阿吉','战士','新手村',xjs)
+		
+	</script> -->
+	
+	<div style="width: 800px;height: 600px;position: relative;">
+	<video src="lyl2.mp4" id="video1" controls=""></video>
+		<div class="bar" style="border: 1px solid;position: relative;width: 100%;height: 15%;background: #ccc;border-radius: 10px;opacity: 0;">
+		<button id="playorPaused" style="display: block;background: orange;border-radius: 48px;
+		cursor: pointer;font-family: 'Webdings';position: absolute;font-size: 48px;color: green;bottom: 20%;left: 45%" onclick="playorpaused()">4</button>
+		<button class="pc" onclick="catchPictures()">截图</button>
+		</div>
+
+
+	</div>
+
+	<canvas id="canvascp" width="200" height="400" style="background-color: red;position: relative;left: 50%"></canvas>
+	
+	<script type="text/javascript">
+		function playorpaused(e){
+			if(video1.paused){
+				video1.play()
+				event.target.innerHTML=';'
+				event.target.style.color='red'
+			}else{
+				video1.pause()
+				event.target.innerHTML='4'
+				event.target.style.color='green'
+			}
+		}
+		function catchPictures(){
+			var cpx=canvascp.getContext('2d');
+			cpx.clearRect(0,0,canvascp.width,canvascp.height);
+			cpx.drawImage(video1,0,0,canvascp.width,canvascp.height)
+		}
+		var ll=function fun(){
+			var arr=[];
+			for(var i=0;i<5;i++){
+				arr[i]=function(n){
+					return function(){
+						return '元素'+n
+					}
+				}(i)
+			}
+			return arr
+		}()
+		
+		// alert(ll[2]())
+		var name='the window'
+		var objn={
+			name:'my objn',
+			get:function(){
+				var self=this
+				return function(){
+					return self.name
+				}
+			}
+		}
+		// alert(objn.get().apply(objn))
+		// alert(objn.get()())
+		
+		// setTimeout(function opennews(){
+		// 	window.open('html测试.html','news','height=300,width=600,top=50,left=100')
+		// },2000)
+	</script>
+	<br><br><br><br><br><br>
+	<div id="green" class="nmtest">green</div>
+	<div id="red" class="nmtest">red</div>
+	<div id="blue" class="nmtest">blue</div>
+	<div id="orange" class="nmtest">orange</div>
+	<script type="text/javascript">
+		function testnm(){
+			var divarr=document.getElementsByClassName('nmtest')
+			var colorarr=['green','red','blue','orange']
+			for(var i=0;i<4;i++){
+				(function(){
+					var m=i
+					divarr[i].onclick=function(){
+					alert(colorarr[m])
+					}
+				})()
+			}
+		}
+		testnm()
+		// document.cookie='name=张三';
+		// var day=new Date()
+		// day.setDate(day.getDate()+5)
+		// document.cookie='age=356;expires='+day
+		// alert(document.cookie)
+		function setCookie(name,value,expires){
+			document.cookie=encodeURIComponent(name)+'='+encodeURIComponent(value)+';expires='+ddate(expires)
+			// alert(document.cookie)
+		}
+		function ddate(expires){
+			var ddate=new Date();
+			ddate.setDate(ddate.getDate()+expires)
+			return ddate
+		}
+		setCookie('da','newb',10)
+		setCookie('lyl','niubi',18)
+		function getcookie(key){
+			var arrStr=document.cookie.split('; ')
+			for(var i=0;i<arrStr.length;i++){
+				var arr=arrStr[i].split('=')
+				if(arr[0]==key){return decodeURIComponent(arr[1])}
+			}
+			return ''
+		}
+		function removeCookie(name){setCookie(name,'任意'),-1}
+		//alert(getcookie('lyl'))
+
+		var jsonstr='[{"name":"aaa","age":30},{"name":"bbb","age":25},{"name":"ccc","age":20}]';
+		var jsonobj=JSON.parse(jsonstr,function(key,value){
+			if(key=="name"){
+				return 'vip会员：'+value
+			}else{return value}
+		})
+		// var jsonstr1=JSON.stringify(jsonobj,["name"])//将对象转化为json数据,第二个参数为根据key筛选对象
+		//同时第二个参数也可以像解析json数据一样传入一个匿名函数并执行返回key和value
+		//第三个参数表示缩进，为了表示规范和易读性
+		// alert(jsonobj[0].age)
+		for(var i in jsonobj){
+			// alert(jsonobj[i])
+			for(var j in jsonobj[i]){
+				//alert(jsonobj[i][j])
+			}
+		}
+	</script>
+	<br><br><br><br><br><br><br><br>
+	<script type="text/javascript">
+		var str='Html589 html htmL HTML HTml我 第1章 第22章 第13章 第14章 第29章';
+		var str1='1.第一章\n2.第二章\n3.第三章'
+		var str2='td tdd tddd tdtd tdtdtd tdtdtdtd'
+		var strp='13233333333,13244433333,,13498989898'
+		var reg=/[^a-z0-9]/gi
+		var reg1=/第[1][0-9]章/g
+		var reg2=/^\d/gm//多行匹配
+		var reg3=/(td){2,4}/g//分组匹配
+		
+		// document.write(str.search(reg))
+		// document.write(str.match(reg)+"<br>")
+		document.write(str.replace(reg,""))	
+		document.write(str.match(reg1)+"<br>")
+		document.write(str2.match(reg3)+"<br>")
+		document.write(str1.replace(reg2,'#')+'<br>')
+		var reg4=/13[0-3][0-9]{8}/g
+		document.write('联通号码：'+strp.match(reg4)+'<br>')
+		reg4.compile('13[3-9][0-9]{8}','g')
+		document.write('移动号码：'+strp.match(reg4)+'<br>')
+		//量词：+表示至少匹配一个*表示包含0个，n$匹配以n结尾，^n匹配以n开头，+(?=n)匹配后边带n的字符
+		var strc='css3 html5'
+		var regc=/\w+/
+		document.write('regc：'+strc.match(regc)+'<br>')
+		document.write('strc：'+regc.exec(strc)+'<br>')
+	</script>
+	<form name="myform" action="" method="get" onsubmit="checkyz()">
+		<input type="text" name="yzbm" id="yzbm">
+		<input type="submit" name="">
+		<input type="reset" name="" value="重置">
+	</form><br>
+	<form name="myform" action="" method="get">
+		<input type="text" name="yzbm" id="yzbm" pattern="^\d{6}$">
+		<input type="submit" name="">
+		<input type="reset" name="" value="重置">
+	</form>
+	<script type="text/javascript">
+		function checkyz(){
+			var str=document.getElementById('yzbm').value;
+			// var str=myform.yzbm.value;
+			var reg=/^\d{6}$/
+			if(reg.test(str)){
+				alert('格式正确，您的邮政编码为：'+str.substr(0,6))
+			}else{
+				alert('格式错误')
+			}
+		}
+		
+	</script>
+	<textarea id="text1" cols="30" rows="10"></textarea>
+	<input type="button" name="" id="btn1" value="过滤">
+	<textarea id="text2" cols="30" rows="10"></textarea>
+	<script type="text/javascript">
+		var btn1=document.getElementById('btn1')
+		var text1=document.getElementById('text1')
+		var text2=document.getElementById('text2')
+		btn1.onclick=function(){
+			var reg=/<[^<>]+>/g
+			text2.value=text1.value.replace(reg,'')
+		}
+		var dat1=new Date()
+		alert(dat1.getDate())
+	</script>
+
+
+</body>
+</html>

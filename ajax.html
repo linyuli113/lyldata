@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cmn">
+<head>
+	<meta charset="utf-8">
+	<title>hello,html</title>
+	<script type="text/javascript" src="ajaxfunc.js"></script>
+</head>
+<body>
+	<input type="button" id="btn" value="测试按钮">
+	<div style="width: 150px;height: 100px;background: green;" id="div1"></div>
+	<script type="text/javascript">
+		var btn=document.getElementById('btn')
+		btn.onclick=function(){
+			ajax('data.json',function(str){//缓存问题在url后面+random构造不同的url
+				var obj=JSON.parse(str)
+				
+				for(var i in obj){
+					var lii=document.createElement('li')
+					lii.innerHTML+=obj[i]+"<br>"
+					div1.appendChild(lii)
+				}
+			},function(s){
+				alert(s)
+			})
+		}
+	</script>
+	<form action="#" id="form1" method="get">
+		<p>用户名：<input type="text" name="" id="username"><span id="sp"></span>
+		</p>
+		<p>密&nbsp&nbsp&nbsp&nbsp码：<input type="password" id="password" name="password"></p>
+		<input type="button" name="" value="提交" onclick="checkname()">
+	</form>
+	<script type="text/javascript">
+		function checkname(){
+			var boo=false
+			var sp=document.getElementById('sp')
+			var username=document.getElementById('username').value
+			ajax('names.json',function(str){
+				var nameArr=JSON.parse(str)
+				for(var i=0;i<nameArr.length;i++){
+					if(nameArr[i]==username){
+						boo=true
+					}
+				}
+				if(boo){
+					sp.innerHTML='用户名已存在'
+				}else{
+					sp.innerHTML='用户名可以使用'
+				}
+			})
+		}
+		
+	</script>
+</body> 
+</html>		

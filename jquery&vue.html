@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jquery&vue</title>
+	<meta charset="utf-8">
+	<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			alert('hello jquery')
+		})
+	</script> -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		{{name.substring(0,1).toUpperCase()+name.substring(1)}}
+		<p>我是计算属性{{changeword	}}</p>
+		<span>{{age}}</span>
+		<p v-if="isShow">我是动态的创建和删除</p>
+		<p v-show="isShow">我是动态的隐藏和显示</p>
+		<button @click="handleClick">click</button>
+		<p v-bind:class="isShow?'aaa':'bbb'"></p>
+	</div>
+	
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:'#box',
+			data:{
+				name:'xiaoming',
+				age:18,
+				isShow:false,
+			},
+			methods:{
+				handleClick(){
+					// console.log(11)
+					this.name='aaa'
+					this.isShow=true
+				}
+			},
+			computed:{
+				changeword:function(){
+					return this.name.substring(0,1).toUpperCase()+this.name.substring(1)
+				}
+			}
+		})
+	</script>
+
+</body>
+</html>
